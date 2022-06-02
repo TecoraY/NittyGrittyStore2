@@ -1,14 +1,24 @@
-//database of products to export
-
-const pokemon = [
-    {name: String,
-    description: String,
-    img: String,
-    price: Number,
-    quantity: Number,}
- ];
+//schema for products
+const mongoose= require('mongoose');
+const productsSchema= new mongoose.Schema(
+    {name:{
+        type:String,
+        required: true},
+    description:{
+        type:String,
+        required: true},
+    img:{
+        type:String,
+        required:true}, 
+    price:{
+        type:Number,
+    },
+    quantity:{
+        type: Number,
+    },
+});
  //need to export database
- module.exports= products;
+ module.exports= products= mongoose.model('products', productsSchema);
 
  /*{name: "Knit Set", img: "https://i.pinimg.com/originals/97/54/aa/9754aa54891927dba0e7d436d4aa7052.jpg"},
     {name: "Knit Crop Top", img: "https://i.pinimg.com/736x/21/1b/d1/211bd10c92b436686df2582c63507dc8.jpg"},
